@@ -1,0 +1,25 @@
+{
+  "name": "ecommerce_store",
+  "version": "1.0.0",
+  "description": "MERN based Ecommerce App for pratice real world projects",
+  "scripts": {
+    "server": "nodemon ./Backend/server.js",
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run server\"  \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usman-monir/Real-World-Online-Store.git"
+  },
+  "author": "Mohammad Usman Monir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/usman-monir/Real-World-Online-Store/issues"
+  },
+  "homepage": "https://github.com/usman-monir/Real-World-Online-Store#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.0"
+  }
+}

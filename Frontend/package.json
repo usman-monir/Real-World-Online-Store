@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "description": "frontend for MERN based Ecommerce App for pratice real world projects",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,6 +10,12 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usman-monir/Real-World-Online-Store.git"
+  },
+  "author": "Mohammad Usman Monir",
+  "license": "MIT",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "react": "^18.2.0",

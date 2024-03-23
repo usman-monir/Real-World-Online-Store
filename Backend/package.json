@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend for MERN based eCommerce web app for pratice ",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/usman-monir/Real-World-Online-Store.git"
+  },
+  "author": "Mohammad Usman Monir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/usman-monir/Real-World-Online-Store/issues"
+  },
+  "homepage": "https://github.com/usman-monir/Real-World-Online-Store#readme",
+  "dependencies": {
+    "express": "^4.19.1"
+  }
+}
