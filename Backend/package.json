@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/usman-monir/Real-World-Online-Store#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.1"
   }
 }
