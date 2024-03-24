@@ -6,7 +6,9 @@
     "server": "nodemon ./Backend/server.js",
     "client": "cd frontend && npm run dev",
     "dev": "concurrently \"npm run server\"  \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data:import": "node ./Backend/seedingData.js",
+    "data:destroy": "node ./Backend/seedingData.js -d"
   },
   "repository": {
     "type": "git",
