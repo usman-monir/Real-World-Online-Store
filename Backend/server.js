@@ -1,8 +1,10 @@
 import express from 'express';
 import cors from 'cors';
-import products from "./data/products.js";
 import dotenv from "dotenv";
 import connectToMongoDB from "./config/db.js";
+import productRoutes from "./routes/productRoutes.js"
+import { notFound, errorHandler } from './Middleware/errorMiddleware.js';
+
 dotenv.config()
 
 // connect to Mongo DB
@@ -17,14 +19,10 @@ app.get('/', (req, res) => {
   res.send('API home page')
 })
 
-app.get('/api/products/', (req, res) => {
-  res.json(products);
-})
+app.use('/api/products', productRoutes);
 
-app.get('/api/products/:id', (req, res) => {
-    const product = products.find(product => product._id === req.params.id)
-    res.json(product);
-})
+app.use(notFound);
+app.use(errorHandler);
 
 app.listen(PORT, (req, res) => {
     console.log("App listening on port " + PORT);
