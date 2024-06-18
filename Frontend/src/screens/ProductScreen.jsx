@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from '../components/Rating';
 import axios from "axios";
+import { PRODUCTS_URL } from "../../constants";
 
 
 const ProductScreen = () => {
@@ -11,7 +12,7 @@ const ProductScreen = () => {
 
   useEffect(() => {
     const fetchProduct = async () =>{
-      const {data} = await axios.get(`http://localhost:5000/api/products/${productId}`)
+      const {data} = await axios.get(`http://localhost:5000/${PRODUCTS_URL}/${productId}`)
       setProduct(data);
     }
     fetchProduct();

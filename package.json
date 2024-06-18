@@ -4,7 +4,7 @@
   "description": "MERN based Ecommerce App for pratice real world projects",
   "scripts": {
     "server": "nodemon ./Backend/server.js",
-    "client": "cd frontend && npm run dev",
+    "client": "cd Frontend && npm run dev",
     "dev": "concurrently \"npm run server\"  \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1",
     "data:import": "node ./Backend/seedingData.js",
