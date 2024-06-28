@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams, useLocation, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { Form, Row, Col, Image, ListGroup, Card, Button } from 'react-bootstrap';
 import Rating from '../components/Rating';
@@ -7,6 +7,7 @@ import { useGetProductDetailsQuery } from "../store/slices/productsApiSlice";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { addToCart } from "../store/slices/cartSlice";
+import { FRONT_END_URL } from "../../constants";
 
 
 const ProductScreen = () => {
@@ -15,10 +16,20 @@ const ProductScreen = () => {
   const dispatch = useDispatch();
   const { data: product, isLoading, error } = useGetProductDetailsQuery(productId);
   const [ qty, setQty ] = useState(1);
+  const [ redirect, setRedirect ] = useState('/');
+  const { search } = useLocation();
+
   const addToCartHandler = () => {
     dispatch(addToCart({...product, qty}))
     navigate('/cart')
   }
+
+  useEffect(() => {
+    const sp = new URLSearchParams(search);
+    const redirect = sp?.get('redirect')
+    if (redirect) setRedirect( FRONT_END_URL + redirect);
+  },[])
+
   return (
         isLoading ? (
           <Loader/>
@@ -28,7 +39,7 @@ const ProductScreen = () => {
           >{ error?.data?.message || error?.error }</Message>
         ) :
         <>
-          <Link to='/' className='btn btn-light my-3'>
+          <Link to= {redirect} className='btn btn-light my-3'>
             Go Back
           </Link>
           <Row>

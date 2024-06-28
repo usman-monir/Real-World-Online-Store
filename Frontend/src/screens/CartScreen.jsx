@@ -19,7 +19,7 @@ const CartScreen = () => {
     const dispatch = useDispatch();
 
     const cart = useSelector((state) => state.cart);
-    const { cartItems } = cart;
+    const { cartItems, shippingDetails, paymentMethod } = cart;
 
     const addToCartHandler = (product, qty) => {
       dispatch(addToCart({ ...product, qty }));
@@ -30,7 +30,8 @@ const CartScreen = () => {
     };
 
     const checkoutHandler = () => {
-      navigate("/login?redirect=shipping")
+      const redirect = shippingDetails ? (paymentMethod ? 'placeorder' : 'payment') : 'shipping';
+      navigate(`/login?redirect=${redirect}`);
     }
 
     return (
